@@ -77,11 +77,11 @@ vim.opt.scrolloff = 100
 -- Autocomplete {},(),[], "", ''
 vim.keymap.set('i', '{<leader>', '{}<ESC>ha', { desc = 'Open curly braces with cursor between them' })
 vim.keymap.set('i', '{<CR>', '{<CR>}<ESC>%o', { desc = 'Open curly braces with a new line' })
-vim.keymap.set('i', '(', '()<ESC>ha')
-vim.keymap.set('i', '[', '[]<ESC>ha')
-vim.keymap.set('i', '<', '<><ESC>ha')
-vim.keymap.set('i', "'", "''<ESC>ha")
-vim.keymap.set('i', '"', '""<ESC>ha')
+-- vim.keymap.set('i', '(', '()<ESC>ha')
+-- vim.keymap.set('i', '[', '[]<ESC>ha')
+-- vim.keymap.set('i', '<', '<><ESC>ha')
+-- vim.keymap.set('i', "'", "''<ESC>ha")
+-- vim.keymap.set('i', '"', '""<ESC>ha')
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 -- vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>')
@@ -102,6 +102,9 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 vim.keymap.set('n', ']e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+-- Rename a variable
+vim.keymap.set('n', '<leader>vrn', vim.lsp.buf.rename, { desc = 'Rename the variable under cursor' })
 
 vim.keymap.set('n', '<leader>e', function()
   vim.cmd 'Ex'
