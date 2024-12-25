@@ -196,8 +196,8 @@ require('lazy').setup('custom.plugins', {
 })
 
 -- Transparent Vim
-vim.cmd 'hi Normal ctermbg=NONE guibg=NONE'
-vim.cmd 'hi NonText ctermbg=NONE guibg=NONE'
+-- vim.cmd 'hi Normal ctermbg=NONE guibg=NONE'
+-- vim.cmd 'hi NonText ctermbg=NONE guibg=NONE'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
