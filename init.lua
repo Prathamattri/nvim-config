@@ -71,17 +71,21 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 100
 
+vim.opt.textwidth = 120
+-- colorcolumn = +0 syntax create colorcolumn after textwidth+n n--> int
+vim.opt.colorcolumn = '+0'
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
 -- Autocomplete {},(),[], "", ''
-vim.keymap.set('i', '{<leader>', '{}<ESC>ha', { desc = 'Open curly braces with cursor between them' })
+vim.keymap.set('i', '{<leader>', '{}<ESC>i', { desc = 'Open curly braces with cursor between them' })
 vim.keymap.set('i', '{<CR>', '{<CR>}<ESC>%o', { desc = 'Open curly braces with a new line' })
--- vim.keymap.set('i', '(', '()<ESC>ha')
--- vim.keymap.set('i', '[', '[]<ESC>ha')
--- vim.keymap.set('i', '<', '<><ESC>ha')
--- vim.keymap.set('i', "'", "''<ESC>ha")
--- vim.keymap.set('i', '"', '""<ESC>ha')
+-- vim.keymap.set('i', '(', '()<ESC>i')
+-- vim.keymap.set('i', '[', '[]<ESC>i')
+-- vim.keymap.set('i', '<', '<><ESC>i')
+-- vim.keymap.set('i', "'", "''<ESC>i")
+-- vim.keymap.set('i', '"', '""<ESC>i')
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 -- vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>')
@@ -105,6 +109,9 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 -- Rename a variable
 vim.keymap.set('n', '<leader>vrn', vim.lsp.buf.rename, { desc = 'Rename the variable under cursor' })
+
+-- Format file using lsp config
+vim.keymap.set('n', 'QQ', vim.lsp.buf.format, { desc = 'Format file using lsp configuration' })
 
 vim.keymap.set('n', '<leader>e', function()
   vim.cmd 'Ex'
@@ -137,6 +144,7 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+vim.keymap.set('i', '<C-h>', '<BS>')
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -198,6 +206,7 @@ require('lazy').setup('custom.plugins', {
 -- Transparent Vim
 -- vim.cmd 'hi Normal ctermbg=NONE guibg=NONE'
 -- vim.cmd 'hi NonText ctermbg=NONE guibg=NONE'
+vim.cmd 'hi colorcolumn ctermbg=16 guibg=#4BB458'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
